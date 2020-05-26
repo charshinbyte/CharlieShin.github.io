@@ -145,8 +145,7 @@ function config () {
                 
         for ( var i = 0; i < particalLength; i++ ){
             TweenMax.to(particals.vertices[i], 2.5, 
-                {ease:
-                Expo.easeIn,
+                {ease:Expo.easeIn,
                 x: newParticals.vertices[i].x, 
                 y: newParticals.vertices[i].y, 
                 z: newParticals.vertices[i].z} )
@@ -155,11 +154,11 @@ function config () {
 
     function explode () {
         for ( var i = 0; i < particalLength; i++ ){
-        TweenMax.to( particals.vertices[i], 3, {ease:
-        Expo.easeIn, 
-        x: particals.vertices[i].x + Math.random() * 500 - 250, 
-        y: particals.vertices[i].y + Math.random() * 500 - 250, 
-        z: particals.vertices[i].z + Math.random() * 500 - 250})
+        TweenMax.to( particals.vertices[i], 3, 
+		{ease:Expo.easeIn, 
+        	x: particals.vertices[i].x + Math.random() * 500 - 250, 
+        	y: particals.vertices[i].y + Math.random() * 500 - 250, 
+        	z: particals.vertices[i].z + Math.random() * 500 - 250})
         }
     }
 
