@@ -8,7 +8,7 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
         <meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Point cloud morphing effect</title>
+		<title>Haychan Shin</title>
 		<style>
 			body { margin: 0; }
 			canvas { display: block; }
@@ -20,16 +20,50 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
 			<p>Loading...</p>
 		</div>
 		<div id="scene">
-
+			
+			
 			<div id="container"></div>
 
 			<div id="spans">
+
 				<div class="triggers">
-					<span  data-disabled="true">01</span>
-					<span  data-disabled="true">02</span>
-					<span  data-disabled="true">03</span>
+					<span  data-disabled="true">Home</span>
+					<span  data-disabled="true">Experience</span>
+					<span  data-disabled="true">CV</span>
+					<span  data-disabled="true">Contact</span>
+
 				</div>
+
+				<div class="text" id="home">
+					<h1> Hi! I'm Charlie </h1>
+					<h2> Electrical and Electronic Engineering BA, MEng University of Cambridge </h2>
+					<p> Hello, I'm Charlie, a MEng student at the University of Cambridge (Gonville & Caius College) studying Electrical Engineering and Information Sciences. 
+						  <br><br>
+						  I am currently working as a Digitial Twin Researcher on the Space Systems team at the Insitute of Innovation for Future Army - Republic of Korea Army.
+						My main interest lies in empowering the healthcare industry using AI advancements.
+						  </p>
+					<br>
+					<p> 
+						This site is a work in progress
+					</p>
+				</div>
+
+				<div class="text" id="project">
+					<h1> Projects </h1>
+					<h2> BRaTs Brain Tumour Segmentation </h2>
+					<p> BraTS 2020 utilizes multi-institutional pre-operative MRI scans and primarily focuses on the segmentation of intrinsically heterogeneous (in appearance, shape, and histology) brain tumors, namely gliomas. The BrATS 2020 dataset is collected from 19 different medical insitutions in the US with accompanying ground truth labels by expert board-certified neuroradiologists.
+						  </p>
+					<p>
+						A 3D U-Net architecture was used to semantically segment the MRI scans into Necrotic and non-enhancing tumor core, (NCR/NET), Peritumoral edema (ED), and GD-enhancing tumor. For more information regarding this project. Please click the following link.
+					</p>
+					
+				</div>
+
+
+
 			</div>
+
+
 		</div>
 		<script src="js/three.js"></script>
 		<script src="https://code.jquery.com/jquery-3.5.0.min.js" 

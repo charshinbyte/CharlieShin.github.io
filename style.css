@@ -32,7 +32,6 @@
     width: 100%;
 }
 
-
 #spans{
     position: fixed;
 	top: 10px;
@@ -40,7 +39,54 @@
     z-index: 1;
 }
 
+#home {
+    display: block; /* Text is visible by default */
+    opacity: 1; /* Fully opaque initially */
+    transition: opacity 2s ease-in-out; /* Transition opacity over 2 seconds */
+
+}
+#project {
+    display: none; /* Text is visible by default */
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out; /* Transition opacity over 2 seconds */
+
+}
+
+.text{
+    height: fit-content;
+    width: 30%;
+    float: right;
+    overflow: hidden;
+    margin-top: 10%;
+    margin-right: 10%;
+}
+
+.text h1{
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    opacity: 1.0;
+    font-size: 65px;
+}
+.text h2{
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    opacity: 1.0;
+    font-size: 18px;
+}
+.text p{
+    display: block;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    color: #ffffff;
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+
 .triggers{
+    float: left;
     height: fit-content;
     width: fit-content;
     overflow: hidden;
@@ -51,6 +97,14 @@
     display: block;
     cursor: pointer;
     padding: 20px 22px 20px 20px;
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.triggers p{
+    display: block;
+    cursor: pointer;
+    padding: 2px 22px 20px 20px;
     color: #ffffff;
     opacity: 0.5;
 }

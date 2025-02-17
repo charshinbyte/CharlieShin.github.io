@@ -19,7 +19,7 @@ function init () {
     //Camera
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth/innerHeight, 0.1, 1000 );
     camera.position.z = 50;
-    camera.position.y = 10;
+    camera.position.y = 1;
     camera.lookAt( scene.position );
 
 
@@ -39,23 +39,23 @@ function init () {
                 
     window.addEventListener( 'resize', fullScreen, false );
 
-    /*let controls = new THREE.OrbitControls( camera );
-    //disable zoom.
-    controls.enableZoom = false;
+    // const controls = new THREE.OrbitControls(camera);
+    // controls.enableZoom = false;
 
-    //disable rotation.
-    controls.enableRotate = false;
+    
+    // //disable rotation.
+    // controls.enableRotate = true;
 
-    //disable pan.
-    controls.enablePan = false;
-    */
+    // //disable pan.
+    // controls.enablePan = false;
+    
 
 }
 
 
 function config () {
 
-    const pNumber = 10000, pSize = 1.6, defaultAnimationSpeed = 1;
+    const pNumber = 5000, pSize = 1.6, defaultAnimationSpeed = 1;
     var pCount = pNumber;
 
     let bodyPoints;
@@ -83,6 +83,7 @@ function config () {
     var pSystem = new THREE.Points(particals, pMaterial);
 
     pSystem.sortParticles = true;
+    pSystem.position.x = -9;
 
     scene.add(pSystem);
 
@@ -91,25 +92,33 @@ function config () {
     var computeShoe, computeGun;
 
     //Load OBJs
-    objLoader.load( 'models/shoe.obj', function ( object ){
-        computeShoe = object; 
-        object.traverse( function( child ){
-            if(child instanceof THREE.Mesh){
-                child.geometry.scale( 1, 1, 1 );
+
+    objLoader.load('models/brain.obj', function ( object ) {
+        computeGun = object; 
+        object.traverse( function( child ) {
+            if( child instanceof THREE.Mesh ) {
+                child.geometry.scale(1.0, 1.0, 1.0);
                 child.geometry.center();
+                // child.geometry.translate(-10, -20, -20);
+
             }
         });
     });
 
-    objLoader.load(  'models/gun.obj', function ( object ) {
-        computeGun = object; 
-        object.traverse( function( child ) {
-            if( child instanceof THREE.Mesh ) {
-                child.geometry.scale(0.5, 0.5, 0.5);
+    objLoader.load( 'models/me2.obj', function ( object ){
+        computeShoe = object; 
+        object.traverse( function( child ){
+            if(child instanceof THREE.Mesh){
+                // child.geometry.rotateX(-1.57);
+                // child.geometry.rotateY(-1.57);
+
+                // child.geometry.translateX();
                 child.geometry.center();
+                child.geometry.scale( 40.0, 40.0, 40.0 );
             }
         });
     });
+
 
 
     /* computing the random points on OBJs and 
@@ -171,16 +180,61 @@ function config () {
         });
     }
 
+    function fadeOutText() {
+        var text = document.getElementById("home");
+        var text2 = document.getElementById("project");
+
+        text.style.opacity = 0; // Slowly decrease opacity to 0
+        // Hide the element after the opacity transition is complete
+        text.addEventListener('transitionend', function() {
+            text.style.display = 'none';
+
+            text2.style.display = 'block';
+            setTimeout(function() {
+                text2.style.opacity = 1; // Slowly increase opacity to 1
+            }, 15);
+        }, { once: true });
+    }
+
+    function fadeInText() {
+        var text = document.getElementById("home");
+        var text2 = document.getElementById("project");
+        text.style.display = "block"; // Make the div visible
+        text2.style.display = "none";
+
+        text.style.opacity = 1;
+
+    }
+    // function fadeInText() {
+    //     var text = document.getElementById("home");
+    //     var text2 = document.getElementById("project");
+
+    //     text2.style.opacity = 0; // Slowly decrease opacity to 0
+
+    //     text2.addEventListener('transitionend', function() {
+    //         text.style.display = 'block';
+            
+    //         text2.style.display = 'none';
+    //         setTimeout(function() {
+    //             text.style.opacity = 1; // Slowly increase opacity to 1
+    //         }, 10);
+    //     }, { once: false });
+    // }
+
+
     function callShoe () {
+        fadeInText();
         computeObj( computeShoe );
-        setColor( new THREE.Color( 0x088cff ) );
+        setColor( new THREE.Color( 0x2E8B57 ) );
         triggerHandler( 0 );
     }
 
     function callGun () {
+        fadeOutText();
         computeObj( computeGun );
-        setColor( new THREE.Color( 0xff052b ) );
+        setColor( new THREE.Color( 0x5048bf) );
         triggerHandler( 1 );
+        
     }
 
     function callExplode () {
@@ -219,6 +273,8 @@ function config () {
             }
 	    }	
     }
+    
+
 }
 
 init();
