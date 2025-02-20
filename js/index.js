@@ -97,7 +97,7 @@ function config () {
         computeGun = object; 
         object.traverse( function( child ) {
             if( child instanceof THREE.Mesh ) {
-                child.geometry.scale(1.0, 1.0, 1.0);
+                child.geometry.scale(5.0, 5.0, 5.0);
                 child.geometry.center();
                 // child.geometry.translate(-10, -20, -20);
 
