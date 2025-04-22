@@ -1,7 +1,3 @@
-<!--Doesn't work when models or textures are loaded from external files 
-due to browser's same origin policy security restrictions.
-Try running it from local web server as "http://localhost/yourFile.html"-->
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,6 +8,26 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
 		<style>
 			body { margin: 0; }
 			canvas { display: block; }
+
+			.cv-download {
+				cursor: pointer;
+				color: inherit;
+				text-decoration: none;
+			}
+			.cv-download:hover {
+				text-decoration: underline;
+			}
+
+			#experience-container {
+				height: 300px;
+				overflow-y: auto;
+				padding: 10px;
+				border: 1px solid #ccc; 
+			}
+
+			#experience {
+				display: none; /* Hide the Experience section by default */
+			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="style.css?">
 	</head>
@@ -19,33 +35,29 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
 		<div id="loader" >
 			<p>Loading...</p>
 		</div>
+
 		<div id="scene">
-			
-			
 			<div id="container"></div>
 
 			<div id="spans">
-
 				<div class="triggers">
-					<span  data-disabled="true">Home</span>
-					<span  data-disabled="true">Experience</span>
-					<span  data-disabled="true">CV</span>
-					<span  data-disabled="true">Contact</span>
-
+					<span data-disabled="true">Home</span>
+					<span id="experience-tab" data-disabled="true">Experience</span> <!-- ID added for targeting -->
+					<a href="assets/CV_Charlie.pdf" download class="cv-download"><span data-disabled="true">CV</span></a>
+					<a href="https://charlieshinblog.wordpress.com/" target="_blank" class="cv-download">
+						<span data-disabled="true">Blog</span>
+					</a>
 				</div>
 
 				<div class="text" id="home">
 					<h1> Hi! I'm Charlie </h1>
-					<h2> Electrical and Electronic Engineering BA, MEng University of Cambridge </h2>
+					<h2> Electrical and Electronic Engineering BA, MEng <br> University of Cambridge </h2>
 					<p> Hello, I'm Charlie, a MEng student at the University of Cambridge (Gonville & Caius College) studying Electrical Engineering and Information Sciences. 
 						  <br><br>
-						  I am currently working as a Digitial Twin Researcher on the Space Systems team at the Insitute of Innovation for Future Army - Republic of Korea Army.
-						My main interest lies in empowering the healthcare industry using AI advancements.
+						I am currently working as a Digitial Twin Researcher on the Space Systems team at the Insitute of Innovation for Future Army - Republic of Korea Army.
+						My main interest are 3D reconstruction, audio signal processing, and empowering the healthcare industry using AI.
 						  </p>
 					<br>
-					<p> 
-						This site is a work in progress
-					</p>
 				</div>
 
 				<div class="text" id="project">
@@ -59,12 +71,14 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
 					
 				</div>
 
-
-
+				<div class="text" id="experience">
+					<h1> Experience </h1>
+					<p> Here, you can showcase your professional experience. For example, you can write about your previous work, internships, or projects. </p>
+					<!-- Add more detailed experience content here -->
+				</div>
 			</div>
-
-
 		</div>
+
 		<script src="js/three.js"></script>
 		<script src="https://code.jquery.com/jquery-3.5.0.min.js" 
 			integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" 
@@ -77,5 +91,17 @@ Try running it from local web server as "http://localhost/yourFile.html"-->
 		<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/605067/stats.js"></script>
 		<script src="js/index.js"></script>
 
-    </body>
+		<script>
+			// Add a click event listener to the Experience tab
+			document.getElementById('experience-tab').addEventListener('click', function() {
+				var experienceSection = document.getElementById('experience');
+				// Toggle the visibility of the Experience section
+				if (experienceSection.style.display === 'none') {
+					experienceSection.style.display = 'block'; // Show the section
+				} else {
+					experienceSection.style.display = 'none'; // Hide the section
+				}
+			});
+		</script>
+	</body>
 </html>
