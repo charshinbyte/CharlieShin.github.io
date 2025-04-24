@@ -73,7 +73,14 @@
     cursor: pointer;
     color: #ffffff;
     opacity: 1.0;
-    font-size: 18px;
+    font-size: 21px;
+}
+.text h3{
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    opacity: 1.0;
+    font-size: 16px;
 }
 .text p{
     display: block;
@@ -112,4 +119,44 @@
 .triggers .active {
     border-right: thin solid white; 
     opacity: 1;
+}
+
+#project {
+    height: 600px;
+    overflow-y: auto;
+    padding-right: 30px;
+}
+
+
+#project a:link{
+    color: #e5e5e5;
+    font-style: italic;
+}
+
+#project a:visited{
+    color: #e5e5e5;
+    font-style: italic;
+}
+
+#project-container{
+    margin-bottom: 50px;
+}
+
+
+#project::-webkit-scrollbar {
+    width: 6px;
+}
+
+#project::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* REMOVE default horizontal buttons */
+#project::-webkit-scrollbar-button:horizontal {
+    display: none;
+}
+#project::-webkit-scrollbar-thumb {
+    background: var(--thumb-gradient, linear-gradient(180deg, #021256, #5048bf)); /* Default gradient fallback */
+    border-radius: 10px;
 }

@@ -226,6 +226,22 @@ function config () {
         }
     });
 }
+const projectElement = document.getElementById('project');
+    
+projectElement.addEventListener('scroll', () => {
+    const scrollHeight = projectElement.scrollHeight - projectElement.clientHeight;
+    const scrollPosition = projectElement.scrollTop;
+    
+    // Calculate percentage of scroll
+    const scrollPercentage = (scrollPosition / scrollHeight) * 100;
+
+    // Generate a dynamic gradient based on scroll position
+    const colorStart = `rgb(${Math.min(255, scrollPercentage * 0.2)}, 18, 86)`;  
+    const colorEnd = `rgb(80, ${Math.min(191, 80 + scrollPercentage)}, 191)`;  // Gradually change the end color
+    
+    // Apply the dynamic gradient
+    projectElement.style.setProperty('--thumb-gradient', `linear-gradient(180deg, ${colorStart}, ${colorEnd})`);
+});
 
 init();
 config();
