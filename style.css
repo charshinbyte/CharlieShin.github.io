@@ -32,13 +32,6 @@
     width: 100%;
 }
 
-#spans{
-    position: fixed;
-	top: 10px;
-    width: 100%;
-    z-index: 1;
-}
-
 #home {
     display: block; /* Text is visible by default */
     opacity: 1; /* Fully opaque initially */
@@ -52,14 +45,7 @@
 
 }
 
-.text{
-    height: fit-content;
-    width: 30%;
-    float: right;
-    overflow: hidden;
-    margin-top: 10%;
-    margin-right: 10%;
-}
+
 
 .text h1{
     display: block;
@@ -92,29 +78,8 @@
 }
 
 
-.triggers{
-    float: left;
-    height: fit-content;
-    width: fit-content;
-    overflow: hidden;
-    margin-top: 30%;
-    margin-left: 10%;
-}
-.triggers span{
-    display: block;
-    cursor: pointer;
-    padding: 20px 22px 20px 20px;
-    color: #ffffff;
-    opacity: 0.5;
-}
 
-.triggers p{
-    display: block;
-    cursor: pointer;
-    padding: 2px 22px 20px 20px;
-    color: #ffffff;
-    opacity: 0.5;
-}
+
 
 .triggers .active {
     border-right: thin solid white; 
@@ -160,3 +125,72 @@
     background: var(--thumb-gradient, linear-gradient(180deg, #021256, #5048bf)); /* Default gradient fallback */
     border-radius: 10px;
 }
+
+#spans {
+	display: flex;
+	flex-direction: row; 
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	flex-wrap: wrap;
+	gap: 40px;
+    
+}
+
+.text {
+	flex: 1;
+	min-width: 300px;
+    max-width: 600px;
+    margin-top: 5%;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.0); /* visibility only */
+	padding: 20px;
+	border-radius: 10px;
+    margin-right: 5%;
+}
+
+.triggers {
+    display: flex;
+    flex-direction: column; /* Default: stacked on large screens */
+    gap: 10px; /* spacing between elements */
+    align-items: flex-start;
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+.triggers p{
+    display: block;
+    cursor: pointer;
+    padding: 2px 22px 20px 20px;
+    color: #ffffff;
+    opacity: 0.5;
+}
+.triggers span{
+    display: block;
+    cursor: pointer;
+
+    padding: 10px 12px 10px 10px;
+    color: #ffffff;
+    opacity: 0.5;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+  @media (max-width: 768px) {
+    .triggers {
+      flex-direction: row; /* Side-by-side on small screens */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent side-to-side scroll */
+    width: 100%;
+  }
