@@ -178,7 +178,6 @@
     margin-bottom: 10px;
 }
 
-
   @media (max-width: 768px) {
     .triggers {
       flex-direction: row; /* Side-by-side on small screens */
