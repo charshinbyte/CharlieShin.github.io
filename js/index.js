@@ -4,8 +4,10 @@ function startFunction() {
 
 function showPage() {
     $(document).ready(function(){
-        $('#loader').fadeOut();
-    })
+        $('#loader').fadeOut(() => {
+            callShoe(); // Trigger the Home tab once loader disappears
+        });
+    });
 }
 
 var scene, renderer, camera;
