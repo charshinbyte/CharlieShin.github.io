@@ -196,9 +196,13 @@
     .text h3 {
         font-size: 1rem;
     }
+    .triggers {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .triggers span{
 
-        font-size: 0.7rem;
+        font-size: 0.8rem;
 
     }
   }
