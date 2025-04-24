@@ -83,7 +83,7 @@
 
 
 #project {
-    height: 600px;
+    height: 650px;
     overflow-y: auto;
     overflow-x: auto;
     padding-right: 30px;
@@ -187,12 +187,25 @@
       justify-content: center;
       gap: 10px;
     }
+    .text h1 {
+        font-size: 2.5rem; /* smaller size for phones */
+      }
+    .text h2 {
+        font-size: 1.3rem;
+    }
+    .text h3 {
+        font-size: 1rem;
+    }
+    .triggers span{
+
+        font-size: 0.7rem;
+
+    }
   }
 
 html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent side-to-side scroll */
-    overflow-y: hidden;
     width: 100%;
   }
