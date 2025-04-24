@@ -52,21 +52,21 @@
     cursor: pointer;
     color: #ffffff;
     opacity: 1.0;
-    font-size: 65px;
+    font-size: 3rem;
 }
 .text h2{
     display: block;
     cursor: pointer;
     color: #ffffff;
     opacity: 1.0;
-    font-size: 21px;
+    font-size: 1.2rem;
 }
 .text h3{
     display: block;
     cursor: pointer;
     color: #ffffff;
     opacity: 1.0;
-    font-size: 16px;
+    font-size: 1rem;
 }
 .text p{
     display: block;
@@ -81,14 +81,11 @@
 
 
 
-.triggers .active {
-    border-right: thin solid white; 
-    opacity: 1;
-}
 
 #project {
     height: 600px;
     overflow-y: auto;
+    overflow-x: auto;
     padding-right: 30px;
 }
 
@@ -174,11 +171,16 @@
     padding: 10px 12px 10px 10px;
     color: #ffffff;
     opacity: 0.5;
-    font-size: 18px;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
-  @media (max-width: 768px) {
+.triggers .active {
+    border-right: thin solid white; 
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
     .triggers {
       flex-direction: row; /* Side-by-side on small screens */
       flex-wrap: wrap;
@@ -191,5 +193,6 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent side-to-side scroll */
+    overflow-y: hidden;
     width: 100%;
   }
